@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="blocks/learning_style/db" VERSION="20090420" COMMENT="XMLDB file for Moodle blocks/learning_style"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+
+    <TABLE NAME="learning_style" COMMENT="" >
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="user"/>
+        <FIELD NAME="user" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" PREVIOUS="id" NEXT="state"/>
+        <FIELD NAME="state" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" PREVIOUS="user" NEXT="course"/>
+        <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" PREVIOUS="state" NEXT="act_ref"/>
+        <FIELD NAME="act_ref" TYPE="text" LENGTH="10" NOTNULL="true" SEQUENCE="false" PREVIOUS="state" NEXT="sen_int"/>
+        <FIELD NAME="sen_int" TYPE="text" LENGTH="10" NOTNULL="true" SEQUENCE="false" PREVIOUS="state" NEXT="vis_vrb"/>
+        <FIELD NAME="vis_vrb" TYPE="text" LENGTH="10" NOTNULL="true" SEQUENCE="false" PREVIOUS="state" NEXT="seq_glo"/>
+        <FIELD NAME="seq_glo" TYPE="text" LENGTH="10" NOTNULL="true" SEQUENCE="false" PREVIOUS="state" NEXT="created_at"/>
+        <FIELD NAME="created_at" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="course"  NEXT="updated_at"/>
+        <FIELD NAME="updated_at" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="created_at" />
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="block_learning_style_user_idc" UNIQUE="false" FIELDS="user"/>
+      </INDEXES>
+
+    </TABLE>
+  </TABLES>
+</XMLDB>
