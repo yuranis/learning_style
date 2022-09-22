@@ -17,7 +17,6 @@
 #page-blocks-learning_style-view .content-accept label{
     line-height: 16px;
 }
-
 #page-blocks-learning_style-view .content-accept input[type="checkbox"]{
     margin: 0 0 0 10px;
 }
@@ -34,7 +33,7 @@
 }
 
 
-/* The container must be positioned relative: */
+/* The container must be positioned relative: 
 .custom-select {
     font-family: Arial;
   }
@@ -42,14 +41,13 @@
       float: right;
   }
   .custom-select select {
-    display: none; /*hide original SELECT element: */
+    display: none; 
   }
   
   .select-selected {
     background-color:forestgreen;
   }
   
-  /* Style the arrow inside the select element: */
   .select-selected:after {
     position: absolute;
     content: "";
@@ -59,13 +57,11 @@
     border-color: #fff transparent transparent transparent;
   }
   
-  /* Point the arrow upwards when the select box is open (active): */
   .select-selected.select-arrow-active:after {
     border-color: transparent transparent #fff transparent;
     top: 7px;
   }
   
-  /* style the items (options), including the selected item: */
   .select-items div,.select-selected {
     color: #ffffff;
     padding: 8px 16px;
@@ -74,7 +70,6 @@
     cursor: pointer;
   }
   
-  /* Style items (options): */
   .select-items {
     position: absolute;
     background-color: DodgerBlue;
@@ -84,7 +79,6 @@
     z-index: 99;
   }
   
-  /* Hide the items when the select box is closed: */
   .select-hide {
     display: none;
   }
@@ -92,3 +86,4 @@
   .select-items div:hover, .same-as-selected {
     background-color: rgba(0, 0, 0, 0.1);
   }
+*/
