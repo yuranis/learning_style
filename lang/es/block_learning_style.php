@@ -10,6 +10,15 @@ $string['learning_style_actived'] = "Página activada";
 $string['learning_style_configempty'] = "Ingresa a la configuración de este bloque";
 $string['submit_text'] = "Continuar e ir al curso";
 
+$string['active'] = "Activo";
+$string['reflexive'] = "Reflexivo";
+$string['sensitive'] = "Sensitivo";
+$string['intuitive'] = "Intuitivo";
+$string['visual'] = "Visual";
+$string['verbal'] = "Verbal";
+$string['sequential'] = "Secuencial";
+$string['global'] = "Global";
+
 $string["learning_style_content"] = "Estilos de aprendizaje";
 $string['learning_style:addinstance'] = 'Adicionar el bloque de los estilos de aprendizaje';
 $string['learning_style:myaddinstance'] = 'Adicionar el bloque de estilos al inicio';

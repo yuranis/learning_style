@@ -87,3 +87,128 @@
     background-color: rgba(0, 0, 0, 0.1);
   }
 */
+
+/* Slider */
+
+.alpy input[type=range] {
+  height: 27px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.alpy input[type=range]:focus {
+  outline: none;
+}
+
+.alpy input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 11px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #000000;
+  background: #E8F5FF;
+  border-radius: 1px;
+  border: 0px solid #010101;
+}
+
+.alpy input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000031;
+  border: 1px solid #00001E;
+  height: 19px;
+  width: 24px;
+  border-radius: 28px;
+  background: #FFFFFF;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -4.5px;
+}
+
+.alpy input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #E8F5FF;
+}
+
+.alpy input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 11px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #000000;
+  background: #E8F5FF;
+  border-radius: 1px;
+  border: 0px solid #010101;
+}
+
+.alpy input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000031;
+  border: 1px solid #00001E;
+  height: 19px;
+  width: 24px;
+  border-radius: 28px;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+
+.alpy input[type=range]::-ms-track {
+  width: 100%;
+  height: 11px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+.alpy input[type=range]::-ms-fill-lower {
+  background: #E8F5FF;
+  border: 0px solid #010101;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0px #000000;
+}
+
+.alpy input[type=range]::-ms-fill-upper {
+  background: #E8F5FF;
+  border: 0px solid #010101;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0px #000000;
+}
+
+.alpy input[type=range]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 1px 1px 1px #000031;
+  border: 1px solid #00001E;
+  height: 19px;
+  width: 24px;
+  border-radius: 28px;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+
+.alpy input[type=range]:focus::-ms-fill-lower {
+  background: #E8F5FF;
+}
+
+.alpy input[type=range]:focus::-ms-fill-upper {
+  background: #E8F5FF;
+}
+
+.lsorder, .lsorder li, .lsorder ul {
+  list-style-type: none;
+}
+
+.lsorder li:first-child {
+  font-weight: bold;
+}
+
+.lsorder .explain {
+  visibility: hidden;
+  height:0px;
+}
+
+.lsorder li:first-child .explain, .alpyintro {
+  visibility: visible;
+  height:auto;
+  font-size: small;
+  font-weight: 90%;
+  line-height: 110%;
+}

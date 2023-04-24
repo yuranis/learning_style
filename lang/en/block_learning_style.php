@@ -10,6 +10,15 @@ $string['learning_style_actived'] = "Page's Learning Style enabled";
 $string['learning_style_configempty'] = "Page's enabled but need config content. Please configure this block";
 $string['submit_text'] = "Continue and go to the course";
 
+$string['active'] = "Active";
+$string['reflexive'] = "Reflexive";
+$string['sensitive'] = "Sensitive";
+$string['intuitive'] = "Intuitive";
+$string['visual'] = "Visual";
+$string['verbal'] = "Verbal";
+$string['sequential'] = "Sequential";
+$string['global'] = "Global";
+
 $string["learning_style_content"] = "Content text";
 
 $string['learning_style:addinstance'] = 'Add a new learning_style block';
