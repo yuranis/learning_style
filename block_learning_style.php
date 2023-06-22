@@ -73,6 +73,7 @@ class block_learning_style extends block_base
         if (isset($COURSE_ROLED_AS_STUDENT->id) && $COURSE_ROLED_AS_STUDENT->id) {
             //check if user already have the learning style
             $entry = $DB->get_record('learning_style', array('user' => $USER->id, 'course' => $COURSE->id));
+
             if (!$entry) {
                 if (isset($this->config->learning_style_content) && isset($this->config->learning_style_content["text"])) {
                     $SESSION->learning_style = $this->config->learning_style_content["text"];
@@ -80,6 +81,21 @@ class block_learning_style extends block_base
                     redirect($redirect);
                 }
             } else {
+                /**
+                 * 
+                 */
+                // Ejecutar el script de Python con los datos de entrada
+                $json_string = json_encode($entry);
+                $command = "/usr/local/bin/python3 " . getcwd() . "/../blocks/learning_style/cluster_script.py " . escapeshellarg($json_string) . " 2>&1";
+                $output = shell_exec($command);
+                // Imprimir el resultado
+                if (preg_match('/\[(\d+)\]$/', $output, $output)) {
+                    $this->content->text .= "Perteneces al cluster " . $output[1];
+                }
+                /**
+                 * 
+                 */
+
                 $final_style = [];
 
                 if ($entry->act_ref[1] == 'a') {
