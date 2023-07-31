@@ -30,8 +30,22 @@ $PAGE->set_heading($title." : ".$course->fullname);
 
 echo $OUTPUT->header();
 echo $OUTPUT->box_start('generalbox');
-echo "<h1 class='title_learning_style'>".$title ."</h1>";
-echo "<div class='content_learning_style'>".$SESSION->honorcodetext."</div>";
+echo "<h1 class='title_learning_style'>Primer paso, vamos a conocer tu estilo de aprendizaje</h1>";
+echo "
+<p>
+¡Bienvenido al curso de Refuerzo en Fundamentos de Programación!<br>
+<br>
+Acá tendrás a disposición herramientas adicionales y los conocimientos fundamentales 
+necesarios para que te conviertas en un buen programador, independientemente de la carrera que estudies. 
+Nuestro objetivo principal es proporcionarte una experiencia de aprendizaje personalizada y significativa 
+que te permita alcanzar tus metas profesionales y académicas.<br>
+<br>
+Antes de empezar, te invitamos a realizar el siguiente test sobre tu estilo de aprendizaje y preferencia de recursos de aprendizaje. 
+Esto nos permitirá conocerte y recomendarte mejor los recursos a los que tendrás acceso en el curso.<br>
+<br>
+Comencemos!
+</p>
+";
 $action_form = new moodle_url('/blocks/learning_style/save.php');
 ?>
 

@@ -123,7 +123,7 @@ echo "----- ".$seq_glo["result"]." -----";
 */
 $redirect = new moodle_url('/course/view.php', array('id'=>$courseid));
 
-if(save_learning_style($courseid,$act_ref["result"],$sen_int["result"],$vis_vrb["result"],$seq_glo["result"])){
+if(save_learning_style($courseid,$act_ref["result"],$sen_int["result"],$vis_vrb["result"],$seq_glo["result"],$act_ref["a"],$act_ref["b"],$sen_int["a"],$sen_int["b"],$vis_vrb["a"],$vis_vrb["b"],$seq_glo["a"],$seq_glo["b"])){
     redirect($redirect, get_string('redirect_accept_success', 'block_learning_style') );
 }else{
     redirect($redirect, get_string('redirect_accept_exist', 'block_learning_style') );

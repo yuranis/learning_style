@@ -84,17 +84,6 @@ class block_learning_style extends block_base
                 /**
                  * 
                  */
-                // Ejecutar el script de Python con los datos de entrada
-                $json_string = json_encode($entry);
-                $command = "/usr/local/bin/python3 " . getcwd() . "/../blocks/learning_style/cluster_script.py " . escapeshellarg($json_string) . " 2>&1";
-                $output = shell_exec($command);
-                // Imprimir el resultado
-                if (preg_match('/\[(\d+)\]$/', $output, $output)) {
-                    $this->content->text .= "Perteneces al cluster " . $output[1];
-                }
-                /**
-                 * 
-                 */
 
                 $final_style = [];
 
