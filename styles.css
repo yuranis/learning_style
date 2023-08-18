@@ -32,62 +32,6 @@
     margin: 0 3px 3px 0;
 }
 
-
-/* The container must be positioned relative: 
-.custom-select {
-    font-family: Arial;
-  }
-  h2 {
-      float: right;
-  }
-  .custom-select select {
-    display: none; 
-  }
-  
-  .select-selected {
-    background-color:forestgreen;
-  }
-  
-  .select-selected:after {
-    position: absolute;
-    content: "";
-    width: 0;
-    height: 0;
-    border: 6px solid transparent;
-    border-color: #fff transparent transparent transparent;
-  }
-  
-  .select-selected.select-arrow-active:after {
-    border-color: transparent transparent #fff transparent;
-    top: 7px;
-  }
-  
-  .select-items div,.select-selected {
-    color: #ffffff;
-    padding: 8px 16px;
-    border: 1px solid transparent;
-    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-    cursor: pointer;
-  }
-  
-  .select-items {
-    position: absolute;
-    background-color: DodgerBlue;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 99;
-  }
-  
-  .select-hide {
-    display: none;
-  }
-  
-  .select-items div:hover, .same-as-selected {
-    background-color: rgba(0, 0, 0, 0.1);
-  }
-*/
-
 /* Slider */
 
 .alpy input[type=range] {
@@ -196,9 +140,9 @@
   list-style-type: none;
 }
 
-.lsorder li:first-child {
+/*.lsorder li:first-child {
   font-weight: bold;
-}
+}*/
 
 .lsorder .explain {
   visibility: hidden;
@@ -211,4 +155,12 @@
   font-size: small;
   font-weight: 90%;
   line-height: 110%;
+}
+
+.lsorder .explain2 {
+  height:0px;
+  height:auto;
+  font-size: small;
+  font-weight: 90%;
+  line-height: 100%;
 }

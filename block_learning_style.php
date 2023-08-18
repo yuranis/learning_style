@@ -17,14 +17,20 @@ class block_learning_style extends block_base
         return false;
     }
 
-    function my_slider($value, $izq_val, $der_val)
+    function my_slider($value, $izq_val, $der_val, $izq_title, $der_title)
     {
         global $OUTPUT;
 
         $slider = '';
         $slider .= '<div class="slider-container" style="text-align:center">';
-        $slider .= $izq_val . " ⇄ " . $der_val . "<br>";
-        $slider .= '<input type="range" class="alpy" name="LearningStyle" min="-11" max="11" value="' . $value . '" disabled>';
+
+        if ($value >= 0 ){
+            $slider .= "<span title='$izq_title'>$izq_val</span> ⇄ <strong title='$der_title'> $der_val </strong><br>";
+            $slider .= '<input type="range" class="alpy" name="LearningStyle" min="-11" max="11" value="' . $value . '" disabled>';
+        }else {
+            $slider .= "<strong title='$izq_title'>$izq_val</strong> ⇄ <span title='$der_title'> $der_val </span><br>";
+            $slider .= '<input type="range" class="alpy" name="LearningStyle" min="-11" max="11" value="' . $value . '" disabled>';
+        }
         $slider .= '</div>';
         return $slider;
     }
@@ -87,36 +93,45 @@ class block_learning_style extends block_base
 
                 $final_style = [];
 
+                $izq_title = "Activo: te sugiero utilizar actividades prácticas, resolución de problemas, realizar experimentos, proyectos prácticos, participar en discusiones grupales, trabajar en grupos.";
+                $der_title = "Reflexivo: te sugiero desarrollar lecturas reflexivas, tomar notas y reflexionar sobre el material de aprendizaje, crear diagramas y organizar información, tomarse el tiempo para considerar las opciones antes de tomar decisiones, actividades de análisis de casos y actividades de autoevaluación.";
                 if ($entry->act_ref[1] == 'a') {
-                    $final_style[$entry->act_ref[0] . "ar"] = $this->my_slider($entry->act_ref[0] * -1, get_string("active", 'block_learning_style'), get_string("reflexive", 'block_learning_style'));
-                    $final_style[$entry->act_ref[0] . "ar"] .= "<p class='explain'>Activo: te sugiero utilizar actividades prácticas, resolución de problemas, realizar experimentos, proyectos prácticos, participar en discusiones grupales, trabajar en grupos.</p>";
+
+                    $final_style[$entry->act_ref[0] . "ar"] = $this->my_slider($entry->act_ref[0] * -1, get_string("active", 'block_learning_style'), get_string("reflexive", 'block_learning_style'),$izq_title,$der_title);
+                    $final_style[$entry->act_ref[0] . "ar"] .= "<p class='explain'>$izq_title</p>";
                 } else {
-                    $final_style[$entry->act_ref[0] . "ar"] = $this->my_slider($entry->act_ref[0], get_string("active", 'block_learning_style'), get_string("reflexive", 'block_learning_style'));
-                    $final_style[$entry->act_ref[0] . "ar"] .= "<p class='explain'>Reflexivo: te sugiero desarrollar lecturas reflexivas, tomar notas y reflexionar sobre el material de aprendizaje, crear diagramas y organizar información, tomarse el tiempo para considerar las opciones antes de tomar decisiones, actividades de análisis de casos y actividades de autoevaluación.</p>";
+                    $final_style[$entry->act_ref[0] . "ar"] = $this->my_slider($entry->act_ref[0], get_string("active", 'block_learning_style'), get_string("reflexive", 'block_learning_style'),$izq_title,$der_title);
+                    $final_style[$entry->act_ref[0] . "ar"] .= "<p class='explain'>$der_title</p>";
                 }
 
+                $izq_title = "Sensitivo: te sugiero realizar una observación detallada y aplicación práctica de conceptos, utilizar ejemplos concretos y aplicaciones prácticas del material de aprendizaje, realizar actividades de laboratorio y proyectos. Desarrollar trabajo práctico. ";
+                $der_title = "Intuitivo: te sugiero utilizar buscar conexiones y patrones en la información, utilizar analogías e historias para ilustrar los conceptos, hacer preguntas y explorar nuevas ideas. Actividades como la resolución de problemas complejos, actividades creativas y discusiones teóricas.";
                 if ($entry->sen_int[1] == 'a') {
-                    $final_style[$entry->sen_int[0] . "si"] = $this->my_slider($entry->sen_int[0] * -1, get_string("sensitive", 'block_learning_style'), get_string("intuitive", 'block_learning_style'));
-                    $final_style[$entry->sen_int[0] . "si"] .= "<p class='explain'>Sensitivo: te sugiero realizar una observación detallada y aplicación práctica de conceptos, utilizar ejemplos concretos y aplicaciones prácticas del material de aprendizaje, realizar actividades de laboratorio y proyectos. Desarrollar trabajo práctico. </p>";
+                    $final_style[$entry->sen_int[0] . "si"] = $this->my_slider($entry->sen_int[0] * -1, get_string("sensitive", 'block_learning_style'), get_string("intuitive", 'block_learning_style'),$izq_title,$der_title);
+                    $final_style[$entry->sen_int[0] . "si"] .= "<p class='explain'>$izq_title</p>";
                 } else {
-                    $final_style[$entry->sen_int[0] . "si"] = $this->my_slider($entry->sen_int[0], get_string("sensitive", 'block_learning_style'), get_string("intuitive", 'block_learning_style'));
-                    $final_style[$entry->sen_int[0] . "si"] .= "<p class='explain'>Intuitivo: te sugiero utilizar buscar conexiones y patrones en la información, utilizar analogías e historias para ilustrar los conceptos, hacer preguntas y explorar nuevas ideas. Actividades como la resolución de problemas complejos, actividades creativas y discusiones teóricas.</p>";
+                    $final_style[$entry->sen_int[0] . "si"] = $this->my_slider($entry->sen_int[0], get_string("sensitive", 'block_learning_style'), get_string("intuitive", 'block_learning_style'),$izq_title,$der_title);
+                    $final_style[$entry->sen_int[0] . "si"] .= "<p class='explain'>$der_title</p>";
                 }
 
+                $izq_title = "Visual: te sugiero utilizar gráficos, diagramas, videos y otros recursos visuales para representar la información, realizar mapas mentales y dibujar imágenes para comprender el material. ";
+                $der_title = "Verbal: te sugiero leer y escribir notas, desarrollar resúmenes del material, discutir el material en grupos o con un compañero de estudio, utilizar técnicas de memorización como la repetición verbal, discusiones o explicaciones verbales.";
                 if ($entry->vis_vrb[1] == 'a') {
-                    $final_style[$entry->vis_vrb[0] . "vv"] = $this->my_slider($entry->vis_vrb[0] * -1, get_string("visual", 'block_learning_style'), get_string("verbal", 'block_learning_style'));
-                    $final_style[$entry->vis_vrb[0] . "vv"] .= "<p class='explain'>Visual: te sugiero utilizar gráficos, diagramas, videos y otros recursos visuales para representar la información, realizar mapas mentales y dibujar imágenes para comprender el material. </p>";
+                    $final_style[$entry->vis_vrb[0] . "vv"] = $this->my_slider($entry->vis_vrb[0] * -1, get_string("visual", 'block_learning_style'), get_string("verbal", 'block_learning_style'),$izq_title,$der_title);
+                    $final_style[$entry->vis_vrb[0] . "vv"] .= "<p class='explain'>$izq_title</p>";
                 } else {
-                    $final_style[$entry->vis_vrb[0] . "vv"] = $this->my_slider($entry->vis_vrb[0], get_string("visual", 'block_learning_style'), get_string("verbal", 'block_learning_style'));
-                    $final_style[$entry->vis_vrb[0] . "vv"] .= "<p class='explain'>Verbal: te sugiero leer y escribir notas, desarrollar resúmenes del material, discutir el material en grupos o con un compañero de estudio, utilizar técnicas de memorización como la repetición verbal, discusiones o explicaciones verbales.</p>";
+                    $final_style[$entry->vis_vrb[0] . "vv"] = $this->my_slider($entry->vis_vrb[0], get_string("visual", 'block_learning_style'), get_string("verbal", 'block_learning_style'),$izq_title,$der_title);
+                    $final_style[$entry->vis_vrb[0] . "vv"] .= "<p class='explain'>$der_title</p>";
                 }
 
+                $izq_title = "Secuencial: te sugiero seguir una estructura lógica y organizada para aprender, tomar notas y resumir el material de aprendizaje, trabajar, analizar a través de pasos a pasos para resolver problemas.";
+                $der_title = "Global: te sugiero buscar conexiones y patrones en la información, trabajar con el material de aprendizaje en su conjunto antes de enfocarse en los detalles, utilizar analogías y metáforas para ilustrar los conceptos. Trabajar en actividades que permiten la exploración y conexión de conceptos, aprendizaje basado en proyectos y discusión de temas complejos.";
                 if ($entry->seq_glo[1] == 'a') {
-                    $final_style[$entry->seq_glo[0] . "sg"] = $this->my_slider($entry->seq_glo[0] * -1, get_string("sequential", 'block_learning_style'), get_string("global", 'block_learning_style'));
-                    $final_style[$entry->seq_glo[0] . "sg"] .= "<p class='explain'>Secuencial: te sugiero seguir una estructura lógica y organizada para aprender, tomar notas y resumir el material de aprendizaje, trabajar, analizar a través de pasos a pasos para resolver problemas.</p>";
+                    $final_style[$entry->seq_glo[0] . "sg"] = $this->my_slider($entry->seq_glo[0] * -1, get_string("sequential", 'block_learning_style'), get_string("global", 'block_learning_style'),$izq_title,$der_title);
+                    $final_style[$entry->seq_glo[0] . "sg"] .= "<p class='explain'>$izq_title</p>";
                 } else {
-                    $final_style[$entry->seq_glo[0] . "sg"] = $this->my_slider($entry->seq_glo[0], get_string("sequential", 'block_learning_style'), get_string("global", 'block_learning_style'));
-                    $final_style[$entry->seq_glo[0] . "sg"] .= "<p class='explain'>Global: te sugiero buscar conexiones y patrones en la información, trabajar con el material de aprendizaje en su conjunto antes de enfocarse en los detalles, utilizar analogías y metáforas para ilustrar los conceptos. Trabajar en actividades que permiten la exploración y conexión de conceptos, aprendizaje basado en proyectos y discusión de temas complejos.</p>";
+                    $final_style[$entry->seq_glo[0] . "sg"] = $this->my_slider($entry->seq_glo[0], get_string("sequential", 'block_learning_style'), get_string("global", 'block_learning_style'),$izq_title,$der_title);
+                    $final_style[$entry->seq_glo[0] . "sg"] .= "<p class='explain'>$der_title</p>";
                 }
 
                 krsort($final_style);
@@ -126,7 +141,7 @@ class block_learning_style extends block_base
                 foreach ($final_style as $key => $val) {
                     $this->content->text .= "<li>$val</li>";
                 }
-                $this->content->text .= "</ul>";
+                $this->content->text .= "</ul><p class='lsorder'><i class='explain2'>*Visualiza tus otros estilos pasando el cursor sobre aquellos marcados en negrilla.</i></p>";
             }
         } else {
             if (isset($this->config->learning_style_content) && isset($this->config->learning_style_content["text"])) {
@@ -135,6 +150,7 @@ class block_learning_style extends block_base
                 $this->content->text = "<img src='" . $OUTPUT->pix_url('warning', 'block_learning_style') . "'>" . get_string('learning_style_configempty', 'block_learning_style');
             }
         }
+
         return $this->content;
     }
 }
